@@ -14,7 +14,7 @@ app.get('/article-two', function (req, res) {
 });
 
 app.get('/article-three', function (req, res) {
-  res.send('Article Three Requested');;
+  res.send('Article Three Requested');
 });
 
 app.get('/', function (req, res) {
