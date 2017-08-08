@@ -10,15 +10,48 @@ var articleOne = {
   heading: 'Article One',
   date: 'August 08, 2017',
   content: 
-                `<p>
-                    This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. 
-                </p>
-                <p>
-                    This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. 
-                </p>
-                <p>
-                    This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. `
+    `<p>
+        This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. 
+    </p>
+    <p>
+        This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. 
+    </p>
+    <p>
+        This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. `
 };
+
+var articleTwo = {
+  title: 'Article Two: P S Unnikrishnan',
+  heading: 'Article Two',
+  date: 'Sept 08, 2017',
+  content: 
+    `<p>
+        This is the content of article Two.
+    </p>
+    <p>
+        This is the content of article Two.
+    <p>
+        This is the content of article Two. This is the content of article Two.
+    </p>`
+                
+};
+
+var articleThree = {
+  title: 'Article Three: P S Unnikrishnan',
+  heading: 'Article Three',
+  date: 'Oct 08, 2017',
+  content: 
+    `<p>
+        This is the content of article Three.
+    </p>
+    <p>
+        This is the content of article Three.
+    <p>
+        This is the content of article Three. This is the content of article Three.
+    </p>`
+                
+};
+                
 function createTemplate (data){
     var title = data.title;
     var heading = data.heading;
@@ -54,16 +87,17 @@ function createTemplate (data){
     `;
     return htmlTemplate;
 }
+
 app.get('/article-one', function (req, res) {
   res.send(createTemplate(articleOne));
 });
 
 app.get('/article-two', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
+  res.send(createTemplate(articleTwo));
 });
 
 app.get('/article-three', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'article-three.html'));
+  res.send(createTemplate(articleThree));
 });
 
 app.get('/', function (req, res) {
