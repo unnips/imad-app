@@ -11,7 +11,7 @@ function moveRight() {
     img.style.marginLeft = marginLeft + 'px';
     if (marginLeft == 600)
     {
-        marginLeft = 0;
+       return;
     }
 }
 
