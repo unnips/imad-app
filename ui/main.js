@@ -9,7 +9,7 @@ var marginLeft = 0;
 function moveRight() {
     marginLeft = marginLeft + 10;
     img.style.marginLeft = marginLeft + 'px';
-    if (marginLeft == 400)
+    if (marginLeft == 600)
     {
         marginLeft = 0;
     }
