@@ -1,6 +1,5 @@
 // Counter code
 var button = document.getElementById('ctrbtn');
-var counter = 0;
 
 button.onclick = function () {
     // Creae a request object
