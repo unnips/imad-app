@@ -8,7 +8,7 @@ button.onclick = function () {
     // Capture the response and store it in a variable
     request.onreadystatechange = function (){
          console.log('Inside function');
-        if(request.readystate === XMLHttpRequest.DONE) {
+        if(request.readyState === XMLHttpRequest.DONE) {
             //Take action
                     console.log('Inside if');
             if (request.status === 200) {
