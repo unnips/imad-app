@@ -7,9 +7,10 @@ button.onclick = function () {
     
     // Capture the response and store it in a variable
     request.onreadystatechange = function (){
+         console.log('Inside function');
         if(request.readystat === XMLHttpRequest.DONE) {
             //Take action
-                    console.log('Inside function');
+                    console.log('Inside if');
             if (request.status === 200) {
                         console.log('Inside inner loop');
                 var counter = request.responseText;
