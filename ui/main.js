@@ -17,6 +17,6 @@ button.onclick = function () {
         }
     };
     // Render the variable in the correct span
-    request.open('GET', 'http://unni6e.imad.hasura-app.io/', true);
+    request.open('GET', 'http://unni6e.imad.hasura-app.io/counter', true);
     request.send(null);
 };
