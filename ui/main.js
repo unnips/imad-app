@@ -1,6 +1,6 @@
 // Counter code
 var button = document.getElementById('ctrbtn');
-
+console.log('Inside main');
 button.onclick = function () {
     // Creae a request object
     var request = new XMLHttpRequest();
