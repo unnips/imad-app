@@ -9,9 +9,9 @@ button.onclick = function () {
     request.onreadystatechange = function (){
         if(request.readystat === XMLHttpRequest.DONE) {
             //Take action
-                    console.log('Inside function')
+                    console.log('Inside function');
             if (request.status === 200) {
-                        console.log('Inside inner loop')
+                        console.log('Inside inner loop');
                 var counter = request.responseText;
                 var span = document.getElementById('count');
                 span.innerHTML = counter.toString();
