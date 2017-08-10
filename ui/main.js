@@ -51,6 +51,6 @@ submit.onclick = function () {
         }
     };
     // Render the variable in the correct span
-    request.open('GET', 'http://unni6e.imad.hasura-app.io/submit-names?name', true);
+    request.open('GET', 'http://unni6e.imad.hasura-app.io/submit-names?name=', true);
     request.send(null);
 };
