@@ -26,7 +26,6 @@ button.onclick = function () {
 };
 
 var nameInput = document.getElementById('name');
-var name = nameInput.value;
 var submit = document.getElementById('submit_btn');
 
 submit.onclick = function () {
@@ -49,6 +48,7 @@ submit.onclick = function () {
             ul.innerHTML = list;
         }
     };
+    var name = nameInput.value;
     // Render the variable in the correct span
     request.open('GET', 'http://unni6e.imad.hasura-app.io/submit-names?name='+name, true);
     request.send(null);
