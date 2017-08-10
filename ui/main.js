@@ -35,7 +35,6 @@ submit.onclick = function () {
     
     // Capture the response and store it in a variable
     request.onreadystatechange = function (){
-        console.log('Inside function');
         if(request.readyState === XMLHttpRequest.DONE) {
             //Take action
             if (request.status === 200) {
@@ -51,6 +50,6 @@ submit.onclick = function () {
         }
     };
     // Render the variable in the correct span
-    request.open('GET', 'http://unni6e.imad.hasura-app.io/submit-names?name=', true);
+    request.open('GET', 'http://unni6e.imad.hasura-app.io/submit-names?name='+name, true);
     request.send(null);
 };
