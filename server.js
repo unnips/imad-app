@@ -125,7 +125,7 @@ app.get('/test-db', function(req, res) {
 
 app.get('/articles/:articleName', function (req, res) {
     
-    Pool.Query("Select * from article where title = " + req.params.articleName, function(err, result){
+    Pool.query("Select * from article where title = " + req.params.articleName, function(err, result){
         if (err){
             res.status(500).send(toString());
         } else {
