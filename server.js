@@ -137,9 +137,7 @@ app.get('/articles/:articleName', function (req, res) {
                 res.send(createTemplate(articleData));
             }
         }
-    })
-    var articleName=req.params.articleName;
-  
+    });
 });
 
 app.get('/', function (req, res) {
