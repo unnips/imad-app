@@ -2,6 +2,7 @@ var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
 var Pool = require('pg').Pool;
+var crypto = require('crypto');
 
 var config = {
     user: 'unni6e',
@@ -13,52 +14,6 @@ var config = {
 
 var app = express();
 app.use(morgan('combined'));
-
-var articles = {
- 'article-one': {
-  title: 'Article One: P S Unnikrishnan',
-  heading: 'Article One',
-  date: 'August 08, 2017',
-  content: 
-    `<p>
-        This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. 
-    </p>
-    <p>
-        This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. 
-    </p>
-    <p>
-        This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One. This is the content of article One.
-    </p>`
-  },
- 'article-two': {
-  title: 'Article Two: P S Unnikrishnan',
-  heading: 'Article Two',
-  date: 'Sept 08, 2017',
-  content: 
-    `<p>
-        This is the content of article Two.
-    </p>
-    <p>
-        This is the content of article Two.
-    <p>
-        This is the content of article Two. This is the content of article Two.
-    </p>`
- },
- 'article-three': {
-  title: 'Article Three: P S Unnikrishnan',
-  heading: 'Article Three',
-  date: 'Oct 08, 2017',
-  content: 
-    `<p>
-        This is the content of article Three.
-    </p>
-    <p>
-        This is the content of article Three.
-    <p>
-        This is the content of article Three. This is the content of article Three.
-    </p>`
- }            
-};
                 
 function createTemplate (data){
     var title = data.title;
@@ -95,6 +50,18 @@ function createTemplate (data){
     `;
     return htmlTemplate;
 }
+
+app.get('/hash/:input', function(req, res) {
+   var hashedString = hash(req.params.input, 'this-is-some-random-string');
+   res.send(hashedString);
+});
+
+function hash(input, salt) {
+   var hashed = crypto.pbkdf2Sync(input, salt, 10000, 512, 'sha512');
+   return hashed.toString('hex') ;
+}
+
+
 
 var counter = 0;
 app.get('/counter', function (req, res) {
