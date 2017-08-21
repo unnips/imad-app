@@ -1,3 +1,5 @@
+
+var submit = var username = document.getElementById('submit_btn');
 // Submit username password to login
 submit.onclick = function () {
     // Make a request to the server and send the name
