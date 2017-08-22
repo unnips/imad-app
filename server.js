@@ -12,7 +12,7 @@ var config = {
     host: 'db.imad.hasura-app.io',
     port: '5432',
     password: process.env.DB_PASSWORD
-}
+};
 
 var app = express();
 app.use(morgan('combined'));
@@ -144,7 +144,7 @@ app.get('/articles/:articleName', function (req, res) {
             res.status(500).send(err.toString());
         } else {
             if (result.rows.length === 0) {
-                res.status(400).send('Article Not Found')
+                res.status(400).send('Article Not Found');
             }
             else {
                 var articleData = result.rows[0];
@@ -160,6 +160,11 @@ app.get('/check-login', function(req, res) {
    }  else {
        res.send("You are not logged in");
    }
+});
+
+app.get('/logout', function (req, res) {
+   delete req.session.auth;
+   res.send("Logged Out");
 });
 
 app.get('/', function (req, res) {
